@@ -4,7 +4,7 @@ RUN dnf install -y python3.11 python3.11-devel git python3-pip make automake gcc
     && rm -rf /var/cache/*dnf*
 WORKDIR /instructlab
 RUN python3.11 -m ensurepip
-RUN git clone --single-branch --branch ap/fsdp-port https://github.com/instructlab/training.git
+RUN git clone --single-branch --branch ap/fsdp-port https://github.com/ilya-kolchinsky/instructlab-training.git
 RUN python3.11 -m pip install -e ./training
 RUN export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib/python3.11/site-packages/nvidia/cudnn/lib" \
     && python3.11 -m pip install -e ./training[cuda]
