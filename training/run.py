@@ -10,7 +10,6 @@ from instructlab.training import (
 parser = argparse.ArgumentParser()
 
 # Training Args
-parser.add_argument("--cpu_offload", default=True)
 parser.add_argument("--model_path", default="ibm-granite/granite-7b-base")
 parser.add_argument("--data_path", default="training/sample-data/train_all_pruned_SDG.jsonl")
 parser.add_argument("--ckpt_output_dir",default="data/saved_checkpoints")
@@ -37,7 +36,6 @@ args = parser.parse_args()
 
 # define training-specific arguments
 training_args = TrainingArgs(
-    deepspeed_options = DeepSpeedOptions(cpu_offload_optimizer=args.cpu_offload),
     # define data-specific arguments
     model_path = args.model_path,
     data_path = args.data_path,
