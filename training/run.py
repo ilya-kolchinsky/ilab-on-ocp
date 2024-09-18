@@ -24,6 +24,7 @@ parser.add_argument("--warmup_steps", default=800)
 parser.add_argument("--is_padding_free", default=True)
 parser.add_argument("--random_seed", default=42)
 parser.add_argument("--checkpoint_at_epoch", default=True)
+parser.add_argument("--num_parallel_procs", default=1)
 
 # Torchrun Args
 parser.add_argument("--nnodes", default=1)
@@ -52,7 +53,8 @@ training_args = TrainingArgs(
     warmup_steps = args.warmup_steps,
     is_padding_free = args.is_padding_free, # set this to true when using Granite-based models
     random_seed = args.random_seed,
-    checkpoint_at_epoch = args.checkpoint_at_epoch
+    checkpoint_at_epoch = args.checkpoint_at_epoch,
+    num_parallel_procs = args.num_parallel_procs
 )
 
 torchrun_args = TorchrunArgs(
