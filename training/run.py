@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser()
 
 # Training Args
 parser.add_argument("--model_path", default="ibm-granite/granite-7b-base")
-parser.add_argument("--data_path", default="training/sample-data/train_all_pruned_SDG.jsonl")
+parser.add_argument("--data_path", default="instructlab-training/sample-data/train_all_pruned_SDG.jsonl")
 parser.add_argument("--ckpt_output_dir",default="data/saved_checkpoints")
 parser.add_argument("--data_output_dir", default="data/outputs")
 parser.add_argument("--max_seq_len", default=4096)
